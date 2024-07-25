@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="fonts/font1.css">
-  <link rel="stylesheet" href="fonts/font2.css">
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Retro Card Maker</title>
@@ -163,13 +160,8 @@
     </div>
 
     <div>
-      <h3>Font</h3>
-      <select id="fontSelector">
-        <option value="Arial, sans-serif">Arial</option>
-        <option value="'SourceHanSerifHK-VF', Arial, sans-serif">宋体</option>
-        <option value="'Custom Font 2', Arial, sans-serif">Custom Font 2</option>
-      </select>
-      <input type="file" id="fontUpload" accept=".ttf,.otf">
+      <h3>Custom Font</h3>
+      <input type="file" id="fontPicker" accept=".ttf,.otf">
     </div>
     
     <div>
@@ -198,36 +190,6 @@
     const authorInput = document.getElementById('authorInput');
     const fontPicker = document.getElementById('fontPicker');
     const downloadBtn = document.getElementById('downloadBtn');
-
-    const fontSelector = document.getElementById('fontSelector');
-    
-    fontSelector.addEventListener('change', () => {
-      const selectedFont = fontSelector.value;
-      if (selectedFont === "'Custom Font', Arial, sans-serif") {
-        fontUpload.click();
-      } else {
-        card.style.fontFamily = selectedFont;
-      }
-    });
-
-    const fontUpload = document.getElementById('fontUpload');
-
-    fontUpload.addEventListener('change', (event) => {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-
-      reader.onload = (e) => {
-        const fontData = e.target.result;
-        const fontFace = new FontFace('Custom Font', fontData);
-
-        document.fonts.add(fontFace);
-        fontFace.load().then(() => {
-          card.style.fontFamily = fontSelector.value;
-        });
-      };
-
-      reader.readAsArrayBuffer(file);
-    });
     
     themeSwatches.forEach(swatch => {
       swatch.addEventListener('click', () => {
