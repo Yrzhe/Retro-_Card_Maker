@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="fonts/font1.css">
+  <link rel="stylesheet" href="fonts/font2.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retro Card Maker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+    h1 {
+      text-align: center;
+    }
+    .card {
+      width: 600px;
+      height: 400px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      background-color: var(--bg-color, #f9e4b7);
+      background-image: url('data:image/png;base64,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');
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--text-color, #3a3a3a);
+      font-family: var(--custom-font, Arial), sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, 0.7);
+      z-index: -1;
+    }
+    .card-title {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .card-content {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+      padding: 0 40px;
+    }
+    .card-author {
+      font-size: 20px;
+      font-style: italic;
+    }
+    .toolbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .toolbar > div {
+      margin: 10px;
+    }
+    .theme-swatches {
+      display: flex;
+    }
+    .swatch {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+      cursor: pointer;
+      border: 2px solid #ccc;
+    }
+    .swatch.active {
+      border-color: #333;
+    }
+    .custom-color {
+      display: flex;
+      align-items: center;
+    }
+    .custom-color label {
+      margin: 0 10px;
+    }
+    .content-input input,
+    .content-input textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    .download-btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      text-align: center;
+      padding: 8px;
+      font-size: 8px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+        .download-options {
+      margin-top: 10px;
+    }
+    .download-options label {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Retro Card Maker</h1>
+  <div class="card">
+    <div class="card-title" id="cardTitle">Title</div>
+    <div class="card-content" id="cardContent">Content</div>
+    <div class="card-author" id="cardAuthor">Author</div>
+  </div>
+
+  <div class="toolbar">
+    <div>
+      <h3>Theme Color</h3>
+      <div class="theme-swatches">
+        <div class="swatch active" style="background-color: #f9e4b7;" data-bg="#f9e4b7" data-text="#3a3a3a"></div>
+        <div class="swatch" style="background-color: #b3d9ff;" data-bg="#b3d9ff" data-text="#333333"></div>
+        <div class="swatch" style="background-color: #ffd1dc;" data-bg="#ffd1dc" data-text="#4a4a4a"></div>
+        <div class="swatch" style="background-color: #d1ffd1;" data-bg="#d1ffd1" data-text="#3a3a3a"></div>
+        <div class="swatch" style="background-color: #e6e6fa;" data-bg="#e6e6fa" data-text="#4a4a4a"></div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Custom Color</h3>
+      <div class="custom-color">
+        <label for="bgColorPicker">BG</label>
+        <input type="color" id="bgColorPicker" value="#f9e4b7">
+        <label for="textColorPicker">Text</label>
+        <input type="color" id="textColorPicker" value="#3a3a3a">
+      </div>
+    </div>
+    
+    <div>
+      <h3>Content</h3>
+      <div class="content-input">
+        <input type="text" id="titleInput" placeholder="Title">
+        <textarea id="contentInput" placeholder="Content"></textarea>
+        <input type="text" id="authorInput" placeholder="Author">
+      </div>
+    </div>
+
+    <div>
+      <h3>Font</h3>
+      <select id="fontSelector">
+        <option value="Arial, sans-serif">Arial</option>
+        <option value="'SourceHanSerifHK-VF', Arial, sans-serif">宋体</option>
+        <option value="'Custom Font 2', Arial, sans-serif">Custom Font 2</option>
+      </select>
+      <input type="file" id="fontUpload" accept=".ttf,.otf">
+    </div>
+    
+    <div>
+        <button class="download-btn" id="downloadBtn">Download Card</button>
+        <div class="download-options">
+          <label><input type="radio" name="quality" value="1080p" checked> 1080p</label>
+          <label><input type="radio" name="quality" value="4k"> 4k</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer" onclick="window.open('https://yrzhe.space', '_blank')">
+    作者主页 : yrzhe.space
+  </div>
+
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+  <script>
+    const card = document.querySelector('.card');
+    const themeSwatches = document.querySelectorAll('.theme-swatches .swatch');
+    const bgColorPicker = document.getElementById('bgColorPicker');
+    const textColorPicker = document.getElementById('textColorPicker');
+    const titleInput = document.getElementById('titleInput');
+    const contentInput = document.getElementById('contentInput');
+    const authorInput = document.getElementById('authorInput');
+    const fontPicker = document.getElementById('fontPicker');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    const fontSelector = document.getElementById('fontSelector');
+    
+    fontSelector.addEventListener('change', () => {
+      const selectedFont = fontSelector.value;
+      card.style.fontFamily = selectedFont;
+    });
+
+    const fontUpload = document.getElementById('fontUpload');
+
+    fontUpload.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        const fontData = e.target.result;
+        const fontFace = new FontFace('Custom Font', fontData);
+
+        document.fonts.add(fontFace);
+        fontFace.load().then(() => {
+          card.style.fontFamily = fontSelector.value;
+        });
+      };
+
+      reader.readAsArrayBuffer(file);
+    });
+    
+    themeSwatches.forEach(swatch => {
+      swatch.addEventListener('click', () => {
+        const bgColor = swatch.getAttribute('data-bg');
+        const textColor = swatch.getAttribute('data-text');
+        card.style.setProperty('--bg-color', bgColor);
+        card.style.setProperty('--text-color', textColor);
+        themeSwatches.forEach(s => s.classList.remove('active'));
+        swatch.classList.add('active');
+        bgColorPicker.value = bgColor;
+        textColorPicker.value = textColor;
+        updateCard();
+      });
+    });
+    
+    bgColorPicker.addEventListener('input', () => {
+      const bgColor = bgColorPicker.value;
+      card.style.setProperty('--bg-color', bgColor);
+      themeSwatches.forEach(s => s.classList.remove('active'));
+      updateCard();
+    });
+
+    textColorPicker.addEventListener('input', () => {
+      const textColor = textColorPicker.value;
+      card.style.setProperty('--text-color', textColor);
+      updateCard();
+    });
+    
+    titleInput.addEventListener('input', updateCard);
+    contentInput.addEventListener('input', updateCard);
+    authorInput.addEventListener('input', updateCard);
+    
+    fontPicker.addEventListener('change', (e) => {
+      fontSelector.addEventListener('change', () => {
+        const selectedFont = fontSelector.value;
+        if (selectedFont === "'Custom Font', Arial, sans-serif") {
+          fontUpload.click();
+        } else {
+          card.style.fontFamily = selectedFont;
+        }
+      });
+    });
+    
+    function updateCard() {
+      document.getElementById('cardTitle').textContent = titleInput.value || 'Title';
+      document.getElementById('cardContent').textContent = contentInput.value || 'Content';
+      document.getElementById('cardAuthor').textContent = authorInput.value || 'Author';
+    }
+
+    downloadBtn.addEventListener('click', () => {
+      const quality = document.querySelector('input[name="quality"]:checked').value;
+      const scaleFactor = quality === '4k' ? 4 : 2;
+      
+      html2canvas(card, { scale: scaleFactor }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'retro-card.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    });
+    
+  </script>
+</body>
+</html>
