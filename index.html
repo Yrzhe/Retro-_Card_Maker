@@ -203,7 +203,11 @@
     
     fontSelector.addEventListener('change', () => {
       const selectedFont = fontSelector.value;
-      card.style.fontFamily = selectedFont;
+      if (selectedFont === "'Custom Font', Arial, sans-serif") {
+        fontUpload.click();
+      } else {
+        card.style.fontFamily = selectedFont;
+      }
     });
 
     const fontUpload = document.getElementById('fontUpload');
@@ -257,14 +261,18 @@
     authorInput.addEventListener('input', updateCard);
     
     fontPicker.addEventListener('change', (e) => {
-      fontSelector.addEventListener('change', () => {
-        const selectedFont = fontSelector.value;
-        if (selectedFont === "'Custom Font', Arial, sans-serif") {
-          fontUpload.click();
-        } else {
-          card.style.fontFamily = selectedFont;
-        }
-      });
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const fontData = e.target.result;
+        const fontFace = new FontFace('CustomFont', fontData);
+        document.fonts.add(fontFace);
+        fontFace.load().then(() => {
+          card.style.setProperty('--custom-font', 'CustomFont');
+          updateCard();
+        });
+      };
+      reader.readAsArrayBuffer(file);
     });
     
     function updateCard() {
